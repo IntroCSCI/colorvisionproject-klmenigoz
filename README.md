@@ -1,12 +1,12 @@
-# !!!Replace with your unique project name!!!
+# Color Accessibility Checker
 
 ## Description
 
-!!!Replace with a description of what your program does!!!
+Pull the color values from the imported website code provided by the user. These values should be within 0 and 255 (dec). Then tell the user what colors are present, based off of what RGB value each color is mostly made up of, or blended with. Then tell the user what colors there are and which ones may create conflict, if any. 
 
 ## Developer
 
-!!!Replace with your name!!!
+Kent Menigoz
 
 ## Example
 
@@ -27,7 +27,9 @@ Here is an example of the program running:
 
 ### Variables and Data Types
 
-!!!Replace with a summary and examples of how multiple variables have been used with a variety of data types and why they have been used effectively and appropriately!!!
+integers: for R G and B values, because these are represented by whole numbers 0 to 255
+string: for color names when we tell the user the colors in question
+char:
 
 ### Input and Output
 
@@ -39,7 +41,7 @@ Here is an example of the program running:
 
 ### Iteration
 
-!!!Replace with a summary and examples of how iteration has been used effectively and appropriately!!!
+ex: a do while loop for gathering input that is within bounds
 
 ### File Input and Output
 

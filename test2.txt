@@ -203,7 +203,7 @@ SIL OFL 1.1, CSS: MIT License) */
 
 .fl-widget-content .button.cta {
   background: #960000;
-  color: #fefefe;
+color: #fefefe;
   border: 0;
 }
 

@@ -1,41 +1,60 @@
 #include <iostream>
 #include <fstream>
+#include <string>
 
 using namespace std;
 
+
+
+
 int main(){
   //declare variables
+
   int red;
   int blue;
   int green;
-  int choice;
-  string fileName;
+  char choice;
   fstream reader;
-  string lineColor;
-  
+  string hot = "color:";
 do
 {
+  string fileName;
+  
+  cout<<endl<<"Enter the file name to check colors"<<endl;
+  cin>>fileName;
 
-  cout<<"Enter the file name to check colors"<<endl;
-  getline(cin, fileName);
   reader.open(fileName); 
   if (reader.is_open()){
-    
-    while(!reader.eof()){
-      for (int lineNum = 0; lineNum <= fileName.length(); lineNum++){
-        if (fileName == "color"){
-          getline(reader,lineColor);
-          cout<<lineColor<<endl;
-          lineNum++;
+    string text;
+    while(!reader.eof() ){
+      for (int lineNum = 0; lineNum < fileName.length(); lineNum++){
+        getline(reader, text);
+          
+
+
+        int x = text.find(hot);
+        if (x != -1){
+        string colorInfo = text.substr (x, 18);
+        if (colorInfo != " " ) 
+          {
+          
+        
+        cout<< colorInfo <<endl;
+          }
         }
+
+
       }
     }
-  }
-
+  }else 
+   { cout<<"Could not open file\n";
+   }
+   reader.close();
   cout<<"Analyze another file? (y/n)"<<endl;
+  
   cin>>choice;
-  reader.close();
-}while(choice == 'y');
+  
+}while(choice != 'n');
 
   return 0;
 }

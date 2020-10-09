@@ -25,7 +25,7 @@ do
   if (reader.is_open()){
     string text;
     while(!reader.eof() ){
-      for (int lineNum = 0; lineNum < 250; lineNum++){    //read filename line by line
+      for (int lineNum = 0; lineNum < 250; lineNum++){    //read filename by line (250                                                         //                     lines)
         getline(reader, text);                            //str "text" is now the current                                                    //line
 
         int x = text.find(hot);       //search for "hot" term, in this case "color:"

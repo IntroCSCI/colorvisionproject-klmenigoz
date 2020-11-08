@@ -1,13 +1,17 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
 int chooseMenu();
-void runSearchFunct(string);
+void runSearchFunct(string,vector <int> &,vector <int> &,vector <int> &);
 string editSearchTerm(string);
 
+vector <int> redVals;
+vector <int> blueVals;
+vector <int> greenVals;
 
 string searchTerm = "color:#";
      
@@ -18,7 +22,7 @@ int main(){ ////////////////////////////////// MAIN ////////////////////////////
   input = chooseMenu();
 
 if(input == 1){
-   runSearchFunct(searchTerm);
+   runSearchFunct(searchTerm,redVals,blueVals,greenVals);
    }
   if(input == 2){
     string currentTerm = searchTerm;
@@ -52,7 +56,7 @@ int chooseMenu(){                  /////-----chooseMenu function
     return input;
 }
 
-void runSearchFunct(string term){            /////------runSearchFunct function
+void runSearchFunct(string term, vector <int> & redVals, vector <int> & greenVals, vector <int> & blueVals){            /////------runSearchFunct function
  
   string fileName;
   char choice;
@@ -75,7 +79,7 @@ void runSearchFunct(string term){            /////------runSearchFunct function
               if (colorInfo != " " ){                  //
 
                   cout<< colorInfo <<endl;             //print colorInfo
-
+            //int red = colorInfo(5,7);  
 
           }
           }

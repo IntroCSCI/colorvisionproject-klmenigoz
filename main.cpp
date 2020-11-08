@@ -4,21 +4,36 @@
 
 using namespace std;
 
+char chooseMenu();
+void runSearchFunct();
 
-int main(){
+int main(){ ////////////////////////////////// MAIN //////////////////////////////////////
   
-
   int red;      //r g and b are not 
   int blue;     //    yet being used
   int green;
   char choice;
   fstream reader;
-  string hot = "color:";    //<---important for changing search term
+  string hot = "color:#";    //<---important for changing search term, add FUNCTION HERE
+
+
+
+  char input;
+  input = chooseMenu();
+
+do{
+
+if(input == 'o' || input == 'O'){
+   runSearchFunct();
+  }
+
+}while( input != 'q' && input != 'Q' );
+
 do
 {
   string fileName;
   
-  cout<<endl<<"Enter the file name to check colors"<<endl;
+  cout<<endl<<"Enter a file name to check its colors"<<endl;
   cin>>fileName;
 
   reader.open(fileName); 
@@ -30,7 +45,7 @@ do
 
         int x = text.find(hot);       //search for "hot" term, in this case "color:"
         if (x != -1){                 //  .find outputs certain logic  ¯\_(ツ)_/¯
-            string colorInfo = text.substr (x, 41);    //create substring colorInfo
+            string colorInfo = text.substr (x, 13);    //create substring colorInfo
               if (colorInfo != " " ){                  //
                  
                   cout<< colorInfo <<endl;
@@ -49,4 +64,25 @@ do
 }while(choice != 'n');
 
   return 0;
+}
+
+
+char chooseMenu(){                  //chooseMenu function
+  char input;
+    cout << "Menu\n----\n";
+    cout << "(O)pen new file\n";
+    cout << "(E)dit search term\n";
+
+    cout << "(Q)uit program\n";
+
+    cin >> input;
+    cin.ignore();
+    return input;
+}
+
+
+void runSearchFunct(){              //search function
+
+
+
 }

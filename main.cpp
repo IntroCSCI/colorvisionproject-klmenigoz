@@ -56,7 +56,8 @@ int chooseMenu(){                  /////-----chooseMenu function
     return input;
 }
 
-void runSearchFunct(string term, vector <int> & redVals, vector <int> & greenVals, vector <int> & blueVals){            /////------runSearchFunct function
+void runSearchFunct(string term, vector <int> & redVals,
+    vector <int> & greenVals, vector <int> & blueVals){            /////------runSearchFunct function
  
   string fileName;
   char choice;
@@ -70,7 +71,7 @@ void runSearchFunct(string term, vector <int> & redVals, vector <int> & greenVal
   if (reader.is_open()){
     string text;
     while(!reader.eof() ){
-      for (int lineNum = 0; lineNum < 250; lineNum++){    //read filename by line (250                                                         //                     lines)
+      for (int lineNum = 0; lineNum < 40; lineNum++){    //read filename by line (250                                                         //                     lines)
         getline(reader, text);                            //str "text" is now the current                                                    //line
 
         int x = text.find(hot);       //search for "hot" term, in this case "color:#"
@@ -79,8 +80,15 @@ void runSearchFunct(string term, vector <int> & redVals, vector <int> & greenVal
               if (colorInfo != " " ){                  //
 
                   cout<< colorInfo <<endl;             //print colorInfo
-            //int red = colorInfo(5,7);  
+           // redVals.push_back(colorInfo[7],colorInfo[8]);  
+           // cout << hex << redVals[lineNum] << endl;
+          cout<<"" << dec <<(colorInfo[7] + colorInfo[8]);
+          cout<<","<< dec <<(colorInfo[9] + colorInfo[10]);
+          cout<<","<< dec <<(colorInfo[11] + colorInfo[12]);
+            //need these to convert right still cause the + aint doing it
 
+          cout<<endl;
+          cout<<endl;
           }
           }
       }
@@ -93,7 +101,7 @@ void runSearchFunct(string term, vector <int> & redVals, vector <int> & greenVal
 }
 
 
-string editSearchTerm(string current){
+string editSearchTerm(string current){                 //edit search term function
 cout<< "\nThe curent search term is:\n"<<current<<endl;
 cout<< "Would you like to change the search term? (y/n)\n";
 char choice;

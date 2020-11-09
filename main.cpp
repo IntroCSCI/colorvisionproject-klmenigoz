@@ -5,18 +5,22 @@
 #include <sstream>
 
 using namespace std;
-
+///////////////////function prototypes
 int chooseMenu();
 void runSearchFunct(string,vector <int> &,vector <int> &,vector <int> &);
 string editSearchTerm(string);
+///////////////////
 
+//some "global" vectors to store converted RGB's, not being used yet though
 vector <int> redVals;
 vector <int> blueVals;
 vector <int> greenVals;
 
+//the search term is also "global" 
 string searchTerm = "color:#";
-     
-int main(){ ////////////////////////////////// MAIN //////////////////////////////////////
+
+
+int main(){ ///////////// MAIN /////////////
 
   int input;
   do{
@@ -30,11 +34,12 @@ if(input == 1){
     searchTerm = editSearchTerm(currentTerm);
     }
   if(input == 3){
-    //int editReadoutLength()
+    //int editReadoutLength()     for changing the length of the readouts
+    //more functions probably on the way here too
     }
   }while(input != 4);
   return 0;
-}
+}// end main()
 
 
 
@@ -44,7 +49,7 @@ if(input == 1){
 //////////////////         FUNCTIONS             //////////////////  
 //////////////////            //                 //////////////////
 
-int chooseMenu(){                  /////-----chooseMenu function
+int chooseMenu(){              /////-----chooseMenu function
   int input;
     cout << "\n Menu\n------\n";
     cout << "(1) Open new file\n";
@@ -55,10 +60,10 @@ int chooseMenu(){                  /////-----chooseMenu function
     cin >> input;
     cin.ignore();
     return input;
-}
+}//end chooseMenu function
 
 void runSearchFunct(string term, vector <int> & redVals,
-    vector <int> & greenVals, vector <int> & blueVals){            /////------runSearchFunct function
+    vector <int> & greenVals, vector <int> & blueVals){   /////------runSearchFunct function
  
   string fileName;
   char choice;
@@ -81,7 +86,7 @@ void runSearchFunct(string term, vector <int> & redVals,
               if (colorInfo != " " ){                  //
                   cout<<endl;
                   cout<< colorInfo <<endl;             //print colorInfo
-           // redVals.push_back(colorInfo[7],colorInfo[8]);  
+           // redVals.push_back(colorInfo[7],colorInfo[8]); <- something like this to store rgb's in vectors 
            // cout << hex << redVals[lineNum] << endl;
 
             
@@ -119,10 +124,10 @@ void runSearchFunct(string term, vector <int> & redVals,
    }
    reader.close();
   return;
-}
+}//end runSearchFunct
 
 
-string editSearchTerm(string current){                 //edit search term function
+string editSearchTerm(string current){           //edit search term function
 cout<< "\nThe curent search term is:\n"<<current<<endl;
 cout<< "Would you like to change the search term? (y/n)\n";
 char choice;
@@ -136,5 +141,4 @@ if(choice == 'y'){
 }else{
   return searchTerm;
  }
-
-}
+}//end editSearchTerm

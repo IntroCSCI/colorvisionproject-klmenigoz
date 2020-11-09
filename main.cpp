@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <sstream>
 
 using namespace std;
 
@@ -78,17 +79,37 @@ void runSearchFunct(string term, vector <int> & redVals,
         if (x != -1){                 //  .find outputs certain logic  ¯\_(ツ)_/¯
             string colorInfo = text.substr (x, 13);    //create substring colorInfo
               if (colorInfo != " " ){                  //
-
+                  cout<<endl;
                   cout<< colorInfo <<endl;             //print colorInfo
            // redVals.push_back(colorInfo[7],colorInfo[8]);  
            // cout << hex << redVals[lineNum] << endl;
-          cout<<"" << dec <<(colorInfo[7] + colorInfo[8]);
-          cout<<","<< dec <<(colorInfo[9] + colorInfo[10]);
-          cout<<","<< dec <<(colorInfo[11] + colorInfo[12]);
-            //need these to convert right still cause the + aint doing it
+
+            
+            char r1 = colorInfo[7]; char r2 = colorInfo[8];
+              auto rBoth = string (1,r1) +r2 ;
+            char b1 = colorInfo[9]; char g2 = colorInfo[10];
+              auto gBoth = string (1,b1) +g2 ;
+            char g1 = colorInfo[11]; char b2 = colorInfo[12];
+              auto bBoth = string (1,g1) +b2 ;
+         if (b2 != ' ' && g2 != '}' && g2 != ';' && g2 != ' ' && g2 != '!')  
+              {//  ^contitions to ensure the present color is the correct length
+
+            string R = rBoth;        //This is so that the "dec" below knows its hex first
+            unsigned int i = stoul(R, nullptr, 16);
+            string G = gBoth;
+            unsigned int j = stoul(G, nullptr, 16);
+            string B = bBoth;
+            unsigned int k = stoul(B, nullptr, 16);
+
+          cout<<"" << dec << i;      //converts i j, k to dec, which are the hex RGB values
+          cout<<","<< dec << j;
+          cout<<","<< dec << k;
+       
+            
 
           cout<<endl;
           cout<<endl;
+            }else{cout<<" ^Bad....skipped!"<<endl;}
           }
           }
       }

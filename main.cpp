@@ -9,35 +9,41 @@ using namespace std;
 int chooseMenu();
 void runSearchFunct(string,vector <int> &,vector <int> &,vector <int> &);
 string editSearchTerm(string);
+void readStoredHexOrDec(vector <int> &,vector <int> &,vector <int> &);
 ///////////////////
 
-//some "global" vectors to store converted RGB's, not being used yet though
+//these needed to be place out here as "global" so that multiple functions
+// ...can easily interface with them, I have a feeling there's a better way though..
 vector <int> redVals;
 vector <int> blueVals;
 vector <int> greenVals;
 
-//the search term is also "global" 
+//search term needed to be out here for both the change term function
+// ...and search function to be initialized with this information I think
 string searchTerm = "color:#";
 
 
 int main(){ ///////////// MAIN /////////////
-
+  
   int input;
   do{
   input = chooseMenu();
 
 if(input == 1){
-   runSearchFunct(searchTerm,redVals,blueVals,greenVals);
+   runSearchFunct(searchTerm, redVals, blueVals, greenVals);
    }
   if(input == 2){
     string currentTerm = searchTerm;
     searchTerm = editSearchTerm(currentTerm);
     }
   if(input == 3){
-    //int editReadoutLength()     for changing the length of the readouts
-    //more functions probably on the way here too
+    //int editReadoutLength() -> for changing the length of the hex/colorname readouts
+    //more functions probably on the way, also to be called here
     }
-  }while(input != 4);
+  if(input == 4){
+    readStoredHexOrDec(redVals, greenVals, blueVals);
+  }
+  }while(input != 5);
   return 0;
 }// end main()
 
@@ -52,10 +58,11 @@ if(input == 1){
 int chooseMenu(){              /////-----chooseMenu function
   int input;
     cout << "\n Menu\n------\n";
-    cout << "(1) Open new file\n";
+    cout << "(1) Open a new file\n";
     cout << "(2) Edit search term\n";
-    cout << "(3) Adjust colorInfo printout length\n";
-    cout << "(4) Quit program\n";
+    cout << "(3) Adjust colorInfo readout length\n";
+    cout << "(4) Read some stored hex or decimal colors (run once first)\n";
+    cout << "(5) Quit program\n";
 
     cin >> input;
     cin.ignore();
@@ -63,7 +70,8 @@ int chooseMenu(){              /////-----chooseMenu function
 }//end chooseMenu function
 
 void runSearchFunct(string term, vector <int> & redVals,
-    vector <int> & greenVals, vector <int> & blueVals){   /////------runSearchFunct function
+    vector <int> & greenVals, vector <int> & blueVals){   /////------runSearchFunct 
+  //                                                      ////          ...function
  
   string fileName;
   char choice;
@@ -97,7 +105,7 @@ void runSearchFunct(string term, vector <int> & redVals,
             char g1 = colorInfo[11]; char b2 = colorInfo[12];
               auto bBoth = string (1,g1) +b2 ;
          if (b2 != ' ' && g2 != '}' && g2 != ';' && g2 != ' ' && g2 != '!')  
-              {//  ^contitions to ensure the present color is the correct length
+              {//  ^conditions to ensure the current color is a workable length
 
             string R = rBoth;        //This is so that the "dec" below knows its hex first
             unsigned int i = stoul(R, nullptr, 16);
@@ -106,10 +114,13 @@ void runSearchFunct(string term, vector <int> & redVals,
             string B = bBoth;
             unsigned int k = stoul(B, nullptr, 16);
 
-          cout<<"" << dec << i;      //converts i j, k to dec, which are the hex RGB values
-          cout<<","<< dec << j;
+          cout<<"" << dec << i;     //prints i j and k, which are the hex values, as decimal ones
+          cout<<","<< dec << j;     
           cout<<","<< dec << k;
-       
+          
+          redVals.push_back(i);     //here we store the HEX values, still working on storing the converted ones...
+          greenVals.push_back(j);
+          blueVals.push_back(k);
             
 
           cout<<endl;
@@ -142,3 +153,31 @@ if(choice == 'y'){
   return searchTerm;
  }
 }//end editSearchTerm
+
+
+void readStoredHexOrDec(vector <int> & redVals,     //readStoredHexOrDec Function
+    vector <int> & greenVals, vector <int> & blueVals){
+      cout<< "Read Hex or Dec? (H/D)\n";
+      char choice;
+      cin>>choice;
+      if(choice == 'H' || choice == 'h'){
+        for (int i=0; i<redVals.size(); i++ ){
+        cout<<"0x" << hex << redVals[i];     //prints R G and B as the hex values
+        cout<<""   << hex << blueVals[i];     
+        cout<<""   << hex << greenVals[i];
+        cout<<endl;
+        cout<<endl;
+        }
+      }
+
+      else if(choice == 'D' || choice == 'd'){
+        for (int i=0; i<redVals.size(); i++ ){
+        cout<<"" << dec << redVals[i];     //prints R G and B,  but as decimal values
+        cout<<","<< dec << blueVals[i];     
+        cout<<","<< dec << greenVals[i];
+        cout<<endl;
+        cout<<endl;
+        }
+      }
+
+    }

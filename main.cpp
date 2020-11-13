@@ -85,8 +85,8 @@ void runSearchFunct(string term, vector <int> & redVals,
   if (reader.is_open()){
     string text;
     while(!reader.eof() ){
-      for (int lineNum = 0; lineNum < 40; lineNum++){    //read filename by line (250                                                         //                     lines)
-        getline(reader, text);                            //str "text" is now the current                                                    //line
+      for (int lineNum = 0; lineNum < 40; lineNum++){    //read filename by line (250 lines  
+        getline(reader, text);                            //str "text" is now the current line    
 
         int x = text.find(hot);       //search for "hot" term, in this case "color:#"
         if (x != -1){                 //  .find outputs certain logic  ¯\_(ツ)_/¯

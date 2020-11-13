@@ -93,6 +93,7 @@ void runSearchFunct(string term, vector <int> & redVals,
             string colorInfo = text.substr (x, 13);    //create substring colorInfo
               if (colorInfo != " " ){                  //
                   cout<<endl;
+                  cout<<"Line "<<lineNum<<", found..."<<endl;
                   cout<< colorInfo <<endl;             //print colorInfo
            // redVals.push_back(colorInfo[7],colorInfo[8]); <- something like this to store rgb's in vectors 
            // cout << hex << redVals[lineNum] << endl;
@@ -180,4 +181,4 @@ void readStoredHexOrDec(vector <int> & redVals,     //readStoredHexOrDec Functio
         }
       }
 
-    }
+    }//end readStoredHexOrDec function

@@ -12,11 +12,6 @@ string editSearchTerm(string);
 void readStoredHexOrDec(vector <int> &,vector <int> &,vector <int> &);
 ///////////////////
 
-//these needed to be place out here as "global" so that multiple functions
-// ...can easily interface with them, I have a feeling there's a better way though..
-vector <int> redVals;
-vector <int> blueVals;
-vector <int> greenVals;
 
 //search term needed to be out here for both the change term function
 // ...and search function to be initialized with this information I think
@@ -24,7 +19,10 @@ string searchTerm = "color:#";
 
 
 int main(){ ///////////// MAIN /////////////
-  
+  vector <int> redVals;
+  vector <int> blueVals;
+  vector <int> greenVals;
+
   int input;
   do{
   input = chooseMenu();
@@ -35,6 +33,7 @@ if(input == 1){
   if(input == 2){
     string currentTerm = searchTerm;
     searchTerm = editSearchTerm(currentTerm);
+    
     }
   if(input == 3){
     //int editReadoutLength() -> for changing the length of the hex/colorname readouts

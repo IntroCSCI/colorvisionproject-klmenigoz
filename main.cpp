@@ -14,7 +14,8 @@ void readStoredHexOrDec(vector <int> &,vector <int> &,vector <int> &);
 
 
 //search term needed to be out here for both the change term function
-// ...and search function to be initialized with this information I think
+// ...and search function to be initialized with this information, not a 
+// ... const GLOBAL_VARIABLE because we have a function for CHANGING it
 string searchTerm = "color:#";
 
 
@@ -118,7 +119,7 @@ void runSearchFunct(string term, vector <int> & redVals,
           cout<<","<< dec << j;     
           cout<<","<< dec << k;
           
-          redVals.push_back(i);     //here we store the HEX values, still working on storing the converted ones...
+          redVals.push_back(i);     //here we store the HEX values
           greenVals.push_back(j);
           blueVals.push_back(k);
             

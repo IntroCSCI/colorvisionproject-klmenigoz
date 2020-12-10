@@ -26,13 +26,13 @@ void analyzer::runSearchFunct(){   /////------runSearchFunct
   std::fstream reader;
   string hot = searchTerm;    //<---important for changing search term, add FUNCTION HERE
   
-  cout<<endl<<"Enter a file name to check its colors"<<endl;
+  cout<<endl<<"Enter a file name to check its colors:\nFor example, try entering w3schools.html\n"<<endl;
   std::cin>>fileName;
 
   reader.open(fileName); 
   if (reader.is_open()){
     string text;
-   
+
 
       for (int lineNum = 1; lineNum < linesToSearch; lineNum++){    //read filename by line  
         getline(reader, text);                            //str "text" is now the current line    
@@ -106,15 +106,16 @@ if(choice == 'y' || choice == 'Y'){
 
 
 void analyzer::editReadoutLength(){         //edit readout function def
-    cout<<"Change readout length? (y/n)\n";
+    cout<< "\nThe curent readout length is: \u001b[93;1m"<<readoutLength<<endl;
+    cout<<"\u001b[0mChange readout length? (y/n)\n";
     char input;
     cin>>input;
     if(input == 'Y' || input == 'y' ){
-      cout<<"\nDefault: 13\nCurrent: "<<readoutLength<<"\nEnter new readout length:\n";
+      cout<<"\nDefault: 13\nCurrent: "<<readoutLength<<"\nNew: ";
       int newLength;
       cin>>newLength;
       readoutLength = newLength;
-      cout <<"New readout length: "<<readoutLength<<"\n";
+      cout <<"New readout length: \u001b[93;1m"<<readoutLength<<"\u001b[93;1m\n";
       
     }
     return;
@@ -128,7 +129,7 @@ cout<<"\u001b[0mChange the number of lines to search? (y/n)\n";
     char input;
     cin>>input;
     if(input == 'Y' || input == 'y' ){
-      cout<<"\nDefault: 300\nCurrent: "<<linesToSearch<<"\nEnter new line target:\n";
+      cout<<"\nDefault: 300\nCurrent: "<<linesToSearch<<"\nNew: ";
       int newLines;
       cin>>newLines;
       linesToSearch = newLines;

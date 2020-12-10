@@ -42,8 +42,8 @@ void analyzer::runSearchFunct(){   /////------runSearchFunct
             string colorInfo = text.substr (x, readoutLength); //create substring colorInfo, default readout len 
               if (colorInfo != " " ){                  //
                   cout<<endl;
-                  cout<<"Line: "<<lineNum<<", found..."<<endl;
-                  cout<< colorInfo <<endl;             //print colorInfo
+                  cout<<"Line "<<lineNum<<", found..."<<endl;
+                  cout<< "\u001b[93;1m" << colorInfo << "\u001b[0m" <<endl;             //print colorInfo
 
             
             char r1 = colorInfo[7]; char r2 = colorInfo[8];
@@ -74,7 +74,7 @@ void analyzer::runSearchFunct(){   /////------runSearchFunct
 
           cout<<endl;
           cout<<endl;
-            }else{cout<<"\u001b[93;1m ^Bad....skipped!\u001b[0m\n"<<endl;}
+            }else{cout<<"\u001b[91;1m ^Bad....skipped!\u001b[0m\n"<<endl;}
           }
           }
       }
@@ -147,11 +147,11 @@ void analyzer::readStoredHexOrDec(){  //readStoredHexOrDec Function
       if(choice == 'H' || choice == 'h'){
         cout<<"\u001b[95;1mReading from stored hexadecimal values: \n\n\u001b[0m";
         for (int i=0; i<redVals.size(); i++ ){
-        cout<<"0x" << std::hex << redVals[i];     //prints R G and B as the hex values
+        cout<<"0x\u001b[97;1m" << std::hex << redVals[i];     //prints R G and B as the hex values
         cout<<""   << std::hex << blueVals[i];     
-        cout<<""   << std::hex << greenVals[i];
+        cout<<""   << std::hex << greenVals[i]<<"\u001b[0m";
         cout<<endl;
-        cout<<endl;
+        //cout<<endl;
         }
       }
 
@@ -162,7 +162,7 @@ void analyzer::readStoredHexOrDec(){  //readStoredHexOrDec Function
         cout<<","<< std::dec << blueVals[i];     
         cout<<","<< std::dec << greenVals[i];
         cout<<endl;
-        cout<<endl;
+        //cout<<endl;
         }
       }
       return;

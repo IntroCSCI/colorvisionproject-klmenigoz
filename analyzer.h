@@ -9,8 +9,6 @@
 
 using std::string;
 using std::vector;
-//using std::fstream;
-//using std::sstream;
 
 class analyzer{
   
@@ -30,13 +28,10 @@ class analyzer{
 
   // overloaded constructor proto for initializer list
   analyzer():readoutLength{13},searchTerm{"color:#"},linesToSearch{300}{
-
-
   }
 
 
   //other function prototypes 
-
 
   //int chooseMenu();      is in main()
 
@@ -49,7 +44,6 @@ class analyzer{
   void editReadoutLength(); //5
 
   void readStoredHexOrDec(); //6
-
 
 };
 

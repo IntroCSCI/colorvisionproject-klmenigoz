@@ -43,7 +43,7 @@ void analyzer::runSearchFunct(){   /////------runSearchFunct
               if (colorInfo != " " ){                  //
                   cout<<endl;
                   cout<<"Line "<<lineNum<<", found..."<<endl;
-                  cout<< "\u001b[93;1m" << colorInfo << "\u001b[0m" <<endl;             //print colorInfo
+                  cout<< "\u001b[93;1m" << colorInfo << "\u001b[0m" <<endl; //print colorInfo
 
             
             char r1 = colorInfo[7]; char r2 = colorInfo[8];
@@ -62,7 +62,7 @@ void analyzer::runSearchFunct(){   /////------runSearchFunct
             string B = bBoth;
             unsigned int k = stoul(B, nullptr, 16);
 
-          cout<<"" << std::dec << i;     //prints i j and k, which are the hex values, as decimal ones
+          cout<<"" << std::dec << i; //prints i j and k, which are the hex values, as decimal ones
           cout<<","<< std::dec << j;     
           cout<<","<< std::dec << k;
           
@@ -167,6 +167,5 @@ void analyzer::readStoredHexOrDec(){  //readStoredHexOrDec Function
       }
       return;
     }//end readStoredHexOrDec function
-
 
 

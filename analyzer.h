@@ -16,34 +16,34 @@ class analyzer{
 
   string searchTerm;
   int linesToSearch;
-  vector <int> redVals;
-  vector <int> blueVals;
-  vector <int> greenVals;
+  vector <int> redVals;   //
+  vector <int> blueVals;  //the color values from file
+  vector <int> greenVals; //...are stored here
   int readoutLength;
 
   public:
 
-  //constructor prototype for analyzer
-  //analyzer();
+  //constructor prototype for analyzer (not being used currently)
+  //analyzer();   
 
-  // overloaded constructor proto for initializer list
+  // overloaded constructor prototype for initializer list
   analyzer():readoutLength{13},searchTerm{"color:#"},linesToSearch{300}{
   }
 
 
   //other function prototypes 
 
-  //int chooseMenu();      is in main()
+  //int chooseMenu(); is located in main.cpp
 
-  void runSearchFunct(); //2
+  void runSearchFunct(); //1
 
-  void editSearchTerm(); //3
+  void editSearchTerm(); //2
 
-  void editLinesToSearch(); //4
+  void editLinesToSearch(); //3
 
-  void editReadoutLength(); //5
+  void editReadoutLength(); //4
 
-  void readStoredHexOrDec(); //6
+  void readStoredHexOrDec(); //5
 
 };
 

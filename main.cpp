@@ -7,10 +7,8 @@
 
 using namespace std;
 
+
 int chooseMenu();
-
-//void other(vector <analyzer> folder);
-
 
 
 int main(){ ///////////// MAIN /////////////
@@ -27,7 +25,6 @@ int main(){ ///////////// MAIN /////////////
    }
 
   if(input == 2){
-    
     probe.editSearchTerm();
    }
 
@@ -50,7 +47,7 @@ int main(){ ///////////// MAIN /////////////
 
 
 
-int chooseMenu(){              /////-----chooseMenu function
+int chooseMenu(){///-----chooseMenu function
   int input;
     cout << "\n\u001b[96;1m Menu\u001b[0m\n------\n";
     cout << "\u001b[94;1m(1)\u001b[0m Open a new file for analyzing\n";
@@ -66,6 +63,5 @@ int chooseMenu(){              /////-----chooseMenu function
      chooseMenu(); 
     }
     return input;
-}
-//end chooseMenu function
+}//end chooseMenu function
 

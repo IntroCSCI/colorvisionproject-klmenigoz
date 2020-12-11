@@ -19,7 +19,7 @@ using std::string;
 
 
 void analyzer::runSearchFunct(){   /////------runSearchFunct 
-  //                                                      ////          ...function
+  //                        ////          ...function
 
   string fileName;
   char choice;
@@ -67,7 +67,7 @@ void analyzer::runSearchFunct(){   /////------runSearchFunct
           cout<<","<< std::dec << k;
           
           
-          redVals.push_back(i);              //here we store the HEX values
+          redVals.push_back(i);  //here we store the HEX values
           greenVals.push_back(j);
           blueVals.push_back(k);
             
@@ -88,7 +88,7 @@ void analyzer::runSearchFunct(){   /////------runSearchFunct
 
 
 
-void analyzer::editSearchTerm(){           //edit search term function
+void analyzer::editSearchTerm(){  //edit search term function
 cout<< "\nThe curent search term is: \u001b[93;1m"<<searchTerm<<endl;
 cout<< "\u001b[0mWould you like to change the search term? (y/n)\n";
 char choice;
@@ -123,7 +123,7 @@ void analyzer::editReadoutLength(){         //edit readout function def
 
 
 
-void analyzer::editLinesToSearch(){           //lines to search function def
+void analyzer::editLinesToSearch(){   //lines to search function def
 cout<< "\nThe curent line target is: \u001b[93;1m"<<linesToSearch<<endl;
 cout<<"\u001b[0mChange the number of lines to search? (y/n)\n";
     char input;
@@ -147,22 +147,22 @@ void analyzer::readStoredHexOrDec(){  //readStoredHexOrDec Function
       if(choice == 'H' || choice == 'h'){
         cout<<"\u001b[95;1mReading from stored hexadecimal values: \n\n\u001b[0m";
         for (int i=0; i<redVals.size(); i++ ){
-        cout<<"0x\u001b[97;1m" << std::hex << redVals[i];     //prints R G and B as the hex values
+        cout<<"0x\u001b[97;1m" << std::hex << redVals[i];//prints R G and B as hex 
         cout<<""   << std::hex << blueVals[i];     
         cout<<""   << std::hex << greenVals[i]<<"\u001b[0m";
         cout<<endl;
-        //cout<<endl;
+      
         }
       }
 
       else if(choice == 'D' || choice == 'd'){
         cout<< "\u001b[95;1mReading from stored decimal values: \n\n\u001b[0m";
         for (int i=0; i<redVals.size(); i++ ){
-        cout<<"" << std::dec << redVals[i];     //prints R G and B,  but as decimal values
+        cout<<"" << std::dec << redVals[i];//prints R G and B,  but as decimal values
         cout<<","<< std::dec << blueVals[i];     
         cout<<","<< std::dec << greenVals[i];
         cout<<endl;
-        //cout<<endl;
+      
         }
       }
       return;
